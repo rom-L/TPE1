@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    background-image: url('../img/wheat.png');
+}
+
+header {
+    position: -webkit-sticky;
+    font-family: 'Krona One', sans-serif;
+    position: sticky;
+    top: 0;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 1px rgb(102, 95, 95);
+}
+
+.logo-login-div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid;
+}
+
+.register-login {
+    display: flex;
+}
+
+.register-login ul {
+    display: flex;
+}
+
+.register-login li {
+    border: solid 1px;
+    font-size: 17px;
+    list-style: none;
+    padding: 10px;
+    border: solid 2px;
+    margin: 5px;
+}
+
+.logo-div {
+    display: flex;
+    width: 100%;
+}
+
+.logo-div img {
+    width: 50px;
+    margin-right: 5px;
+}
+
+.logo {
+    font-size: 43px;
+}
+
+.logo:hover {
+    color: gray;
+    user-select: none;
+}
+
+.navegacion {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+}
+
+ul.navegacion li{
+    border: solid 1px;
+    font-size: 20px;
+    list-style: none;
+    padding: 15px;
+    border: solid 2px;
+    margin: 5px;
+}
+
+ul.navegacion li a, .logo-div a, .register-login li a {
+    text-decoration: none;
+    color: black;
+}
+
+ul.navegacion li a:hover, .register-login li a:hover {
+    color: gray;
+}
+
+nav.opciones {
+    margin: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main.main-error {
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+}
+
+.div-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px;
+    background-color: gray;
+}
+
+.div-inside-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 92%;
+    height: 92%;
+    border-radius: 20px;
+    background-color: rgb(54, 49, 49);
+}
+
+.div-inside-error img {
+    height: 70%;
+    width: auto;
+}
+
+#error-text {
+    text-shadow: black 2px 2px;
+    color: brown;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.div-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    border-radius: 10px;
+    background-image: url('../img/dark-grey-terrazzo.png');
+    border: solid rgb(150, 58, 58);
+    width: 80%;
+}
+
+.div-form .form-public {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.buttons-form-public {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+.buttons-form-public button {
+    width: 15%;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.buttons-form-public a {
+    font-size: 3vh;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.search-band {
+    display: flex;
+    justify-content: center;
+    margin: 35px 0px 15px 0px;
+    width: 100%;
+}
+
+.search-band label {
+    color: rgb(150, 119, 63);
+    font-size: 2.4vh;
+    margin-right: 10px;
+    text-decoration: underline;
+    font-family: 'Krona One', sans-serif;
+}
+
+.search-band button {
+    width: 7%;
+    margin-left: 25px;
+    background-color: wheat;
+    border-radius: 10px;
+    font-size: 2.5vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.search-band select {
+    font-size: 2vh;
+}
+
+.song-table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+}
+
+.song-table thead {
+    background-color: rgb(122, 64, 67);
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.song-table tbody tr {
+    text-align: center;
+    background-color: wheat;
+    font-size: 20px;
+    background-image: url('../img/cork-board.png');
+}
+
+.song-table table, tr, td {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid;
+}
+
+
+.div-form .form-admin {
+    display: flex;
+    margin: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.div-form .form-admin label {
+    margin-top: 20px;
+    color: rgb(150, 119, 63);
+    font-size: 2.4vh;
+    text-decoration: underline;
+    font-family: 'Krona One', sans-serif;
+}
+
+.form-admin button {
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: wheat;
+    border-radius: 10px;
+    font-size: 2.5vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form-admin input, select {
+    font-size: 2.3vh;
+}
+
+
+.form-user-div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    border-radius: 10px;
+    background-image: url('../img/dark-grey-terrazzo.png');
+    border: solid rgb(150, 58, 58);
+    width: 30%;
+}
+
+.form-user-div form {
+    width: 80%;
+    margin-bottom: 25px;
+}
+
+.form-user-div h1 {
+    color: white;
+    font-size: 4vh;
+    text-decoration: underline;
+    font-family: 'Krona One', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 3vh;
+}
+
+.form-group label {
+    color: rgb(190, 135, 32);
+    font-size: 3.5vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: black 1px 2px 3px;
+}
+
+.form-group input {
+    font-size: 4vh;
+}
+
+.form-user-div button {
+    margin-top: 20px;
+    font-size: 2.7vh;
+    font-weight: bold;
+    background-color: rgb(25, 137, 230);
+    border-radius: 5px;
+}
+
+.warning-success, .warning-fail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 10px;
+
+}
+
+.warning-success {
+    background-color: rgb(22, 219, 154);
+    border: solid green;
+}
+
+.warning-fail {
+    background-color: rgb(202, 65, 65);
+    border: solid red;  
+}
+
+
