@@ -28,8 +28,10 @@ class SongController {
         //obtengo todos los elementos para poder mantener al select actualizado 
         $elems = $this->model->getAllElements();
 
+        $bandsAvailable = $this->fixRepeatedBands($elems);
+
         //muestro con la funcion de la vista
-        $this->view->renderElements($songs, $elems);
+        $this->view->renderElements($songs, $elems, $bandsAvailable);
     }
 
     function showSongListByBand() {
@@ -37,7 +39,9 @@ class SongController {
         $songs = $this->model->getSongsByBand($band);
         $elems = $this->model->getAllElements();
 
-        $this->view->renderElements($songs, $elems);
+        $bandsAvailable = $this->fixRepeatedBands($elems);
+
+        $this->view->renderElements($songs, $elems, $bandsAvailable);
     }
 
     function showBandList() {
@@ -46,7 +50,9 @@ class SongController {
         //obtengo todos los elementos para poder mantener al select actualizado 
         $elems = $this->model->getAllElements();
 
-        $this->view->renderBandList($bands, $elems);
+        $bandsAvailable = $this->fixRepeatedBands($elems);
+
+        $this->view->renderBandList($bands, $elems, $bandsAvailable);
     }
 
     function showSongList() {
@@ -55,7 +61,10 @@ class SongController {
         //obtengo todos los elementos para poder mantener al select actualizado 
         $elems = $this->model->getAllElements();
 
-        $this->view->renderSongList($songs, $elems);
+        
+        $bandsAvailable = $this->fixRepeatedBands($elems);
+
+        $this->view->renderSongList($songs, $elems, $bandsAvailable);
     }
 
     function showSongDetails($id) {
@@ -160,5 +169,21 @@ class SongController {
         $this->model->updateBand($bandName, $bandDebut, $albumsReleased, $bandMembers, $id);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+
+
+
+
+    function fixRepeatedBands($elems) {
+        $bands = [];
+
+        foreach ($elems as $elem) {
+            if (!in_array($elem->band_name, $bands)) {
+                array_push($bands, $elem->band_name);
+            }
+        }
+
+        return $bands;
     }
 }

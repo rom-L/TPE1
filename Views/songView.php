@@ -15,27 +15,31 @@ class SongView {
         $this->smarty->display('templates/error.tpl');
     }
 
-    function renderElements($songs, $elems) {
+    function renderElements($songs, $elems, $bandsAvailable) {
         //asigno variable songs a archivo smarty
         $this->smarty->assign('songs', $songs);
 
-        //asigna los valores a otra variable llamada elems para poder trabajar con el select
+        //asigna los valores a otra variable llamada bandsAvailable para poder trabajar con el select
+        $this->smarty->assign('bandsAvailable', $bandsAvailable);
+
         $this->smarty->assign('elems', $elems);
 
         //muestra lista de canciones
         $this->smarty->display('templates/allElementsList.tpl');
     }
 
-    function renderBandList($bands, $elems) {
+    function renderBandList($bands, $elems, $bandsAvailable) {
         $this->smarty->assign('bands', $bands);
         $this->smarty->assign('elems', $elems);
+        $this->smarty->assign('bandsAvailable', $bandsAvailable);
 
         $this->smarty->display('templates/bandListPublic.tpl');
     }
 
-    function renderSongList($songs, $elems) {
+    function renderSongList($songs, $elems, $bandsAvailable) {
         $this->smarty->assign('songs', $songs);
         $this->smarty->assign('elems', $elems);
+        $this->smarty->assign('bandsAvailable', $bandsAvailable);
 
         $this->smarty->display('templates/songListPublic.tpl');
     }

@@ -9,8 +9,8 @@
         <div class="search-band">
             <label>Buscar canciones de banda:</label>
             <select name="band-select">
-                    {foreach from=$elems item=$band}
-                        <option value="{$band->band_name}">{$band->band_name}</option>
+                    {foreach from=$bandsAvailable item=$band}
+                        <option value="{$band}">{$band}</option>
                     {/foreach}  
             </select>
 
