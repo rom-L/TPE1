@@ -21,11 +21,11 @@
 
         </div>
 
-        {if $warning == 'Registro exitoso!'}
+        {*{if $warning == 'Registro exitoso!'}
             <div class="warning-success">
                 <h2>{$warning}</h2>
-            </div>
-        {elseif $warning == 'Registro fallido'}
+            </div>*}
+        {if $warning == 'Registro fallido' || $warning == 'Este nombre de usuario ya existe!'}
             <div class="warning-fail">
                 <h2>{$warning}</h2>
             </div>

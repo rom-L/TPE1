@@ -19,7 +19,6 @@ class UserController {
 
     function showRegisterForm() {
 
-
         $this->view->renderRegisterForm();
     }
 
@@ -29,9 +28,16 @@ class UserController {
             //hasheo a la contraseña (encripto)
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-            $this->model->insertUser($username, $password);
+            $user = $this->model->getUser($username);
 
-            $this->view->renderRegisterForm('Registro exitoso!');
+            if (empty($user)) {
+                $this->model->insertUser($username, $password);
+                
+                $this->loginAfterRegister($username);
+            }
+            else {
+                $this->view->renderRegisterform('Este nombre de usuario ya existe!');
+            }
         }
         else {
             $this->view->renderRegisterForm('Registro fallido');
@@ -64,6 +70,22 @@ class UserController {
         }
         else {
             $this->view->renderLoginForm('Completar casillas');
+        }
+    }
+
+    function loginAfterRegister($username) {
+        $user = $this->model->getUser($username);
+
+        if ($user) {
+            session_start();
+
+            $_SESSION['USER_ID'] = $user->id;
+            $_SESSION['USER_NAME'] = $user->username;
+
+            header("Location: " . BASE_URL);
+        }
+        else {
+            $this->view->renderLoginForm('Algo salió mal, vuelva a iniciar sesión');
         }
     }
 
