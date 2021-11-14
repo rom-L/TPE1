@@ -72,6 +72,7 @@ class UserController {
 
                 $_SESSION['USER_ID'] = $user->id;
                 $_SESSION['USER_NAME'] = $user->username;
+                $_SESSION['USER_PERMISSION'] = $user->permission;
 
                 header("Location: " . BASE_URL);
             }
@@ -92,12 +93,23 @@ class UserController {
 
             $_SESSION['USER_ID'] = $user->id;
             $_SESSION['USER_NAME'] = $user->username;
+            $_SESSION['USER_PERMISSION'] = $user->permission;
 
             header("Location: " . BASE_URL);
         }
         else {
             $this->view->renderLoginForm('Algo salió mal, vuelva a iniciar sesión');
         }
+    }
+
+    function showUserList() {
+        $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
+
+
+        $users = $this->model->getUsers();
+
+        $this->view->renderUserList($users);
     }
 
     function logout() {
