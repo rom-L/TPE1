@@ -5,7 +5,7 @@
 
         {include file="templates/formPublic.tpl"}
 
-        <table class="song-table">
+        <table class="elem-table">
             <thead>
                 <tr>
                     <td>Canción</td>

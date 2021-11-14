@@ -6,7 +6,7 @@
         {include file="templates/formAdminBands.tpl"}
 
         {if !empty($bands)}
-            <table class="song-table">
+            <table class="elem-table">
                 <thead>
                     <tr>
                         <td>ID</td>

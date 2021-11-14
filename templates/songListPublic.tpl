@@ -6,7 +6,7 @@
         {include file="templates/formPublic.tpl"}
 
         {if !empty($songs)}
-            <table class="song-table">
+            <table class="elem-table">
                 <thead>
                     <tr>
                         <td>Canción</td>
