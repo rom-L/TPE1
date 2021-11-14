@@ -151,6 +151,16 @@ switch ($params[0]) {
                 }
             } break;
 
+            case 'users': {
+                if (!isset($params[2])) {
+                    $userController->showUserList();
+                }
+
+                /**
+                 * seguir
+                 */
+            } break;
+
             default: {
                 $songController->throwError();
             } break;

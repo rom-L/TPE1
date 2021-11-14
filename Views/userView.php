@@ -21,4 +21,10 @@ class UserView {
 
         $this->smarty->display('templates/loginForm.tpl');
     }
+
+    function renderUserList($users) {
+        $this->smarty->assign('users', $users);
+
+        $this->smarty->display('templates/userList.tpl');
+    }
 }
