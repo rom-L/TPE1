@@ -25,4 +25,15 @@ class UserModel {
 
         return $elements;
     }
+
+    function getUsers() {
+        $query = $this->db->prepare('SELECT * FROM user');
+
+        $query->execute();
+
+
+        $elements = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
 }
