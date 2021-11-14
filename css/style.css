@@ -92,6 +92,10 @@ nav.opciones {
     margin: 20px;
 }
 
+#home-li-nav {
+    margin-right: 20vh;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -203,13 +207,13 @@ main.main-error {
     font-size: 2vh;
 }
 
-.song-table {
+.elem-table {
     margin-top: 20px;
     border-collapse: collapse;
     margin-bottom: 100px;
 }
 
-.song-table thead {
+.elem-table thead {
     background-color: rgb(122, 64, 67);
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -217,14 +221,14 @@ main.main-error {
     font-size: 25px;
 }
 
-.song-table tbody tr {
+.elem-table tbody tr {
     text-align: center;
     background-color: wheat;
     font-size: 20px;
     background-image: url('../img/cork-board.png');
 }
 
-.song-table table, tr, td {
+.elem-table table, tr, td {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: solid;
 }
@@ -335,4 +339,7 @@ main.main-error {
     border: solid red;  
 }
 
+.green-highlight {
+    color: rgb(18, 155, 18);
+}
 
