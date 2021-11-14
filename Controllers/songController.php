@@ -76,6 +76,7 @@ class SongController {
 
     function showAdminSongList() {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $songs = $this->model->getSongList();
@@ -86,6 +87,7 @@ class SongController {
 
     function showAdminBandList() {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $bands = $this->model->getBandList();
@@ -95,6 +97,7 @@ class SongController {
 
     function eraseSong($id) {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $this->model->deleteSong($id);
@@ -104,6 +107,7 @@ class SongController {
 
     function addSong() {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $songName = $_POST['song-name'];
@@ -119,6 +123,7 @@ class SongController {
 
     function editSong() {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $id = $_POST['song-id-select'];
@@ -135,6 +140,7 @@ class SongController {
 
     function eraseBand($id) {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $this->model->deleteBand($id);
@@ -144,6 +150,7 @@ class SongController {
 
     function addBand() {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
 
         $bandName = $_POST['band-name'];
@@ -158,6 +165,7 @@ class SongController {
 
     function editBand() {
         $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
 
         
         $id = $_POST['band-id-select'];
