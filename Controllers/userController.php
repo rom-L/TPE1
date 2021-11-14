@@ -18,11 +18,16 @@ class UserController {
 
 
     function showRegisterForm() {
+        //si el usuario está logeado no permite registrarse y se redirecciona
+        $this->helper->ifLoggedInRedirect();
 
         $this->view->renderRegisterForm();
     }
 
     function register() {
+        //si el usuario está logeado no permite registrarse y se redirecciona
+        $this->helper->ifLoggedInRedirect();
+
         if ((!empty($_POST['username'])) && (!empty($_POST['password']))) {
             $username = $_POST['username'];
             //hasheo a la contraseña (encripto)
@@ -45,10 +50,16 @@ class UserController {
     }
 
     function showLoginForm() {
+        //si el usuario esta logeado no permite logearse
+        $this->helper->ifLoggedInRedirect();
+
         $this->view->renderLoginForm();
     }
 
     function login() {
+        //si el usuario esta logeado no permite logearse
+        $this->helper->ifLoggedInRedirect();
+
         if ((!empty($_POST['username'])) && (!empty($_POST['password']))) {
             $username = $_POST['username'];
             $password = $_POST['password'];

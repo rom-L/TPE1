@@ -16,6 +16,13 @@ class UserHelper {
         }
     }
 
+    function ifLoggedInRedirect() {
+        if (!empty($_SESSION['USER_ID'])) {
+            header("Location: " . BASE_URL);
+            die();
+        }
+    }
+
     function logout() {
         session_destroy();
 
