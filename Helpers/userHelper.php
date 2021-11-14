@@ -16,6 +16,13 @@ class UserHelper {
         }
     }
 
+    function checkIfAdminIsLogged() {
+        if ($_SESSION['USER_PERMISSION'] == 0) {
+            header("Location: " . BASE_URL);
+            die();            
+        }
+    }
+
     function ifLoggedInRedirect() {
         if (!empty($_SESSION['USER_ID'])) {
             header("Location: " . BASE_URL);
