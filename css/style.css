@@ -339,7 +339,69 @@ main.main-error {
     border: solid red;  
 }
 
-.green-highlight {
+.admin-indicator {
     color: rgb(18, 155, 18);
+    font-weight: bold;
+    margin-left: 30px;
 }
 
+
+.user-list-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    background-color: aliceblue;
+    border: solid;
+    border-radius: 10px;
+    width: 60%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.user-list-container h1 {
+    font-size: 40px;
+}
+
+.user-list {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: wheat;
+    width: 95%;
+    border-radius: 5px;
+    border: solid 2px;
+}
+
+.li-user {
+    display: flex;
+    justify-content: space-around;
+    border: solid 2px;
+    list-style: none;
+    font-size: 26px;
+    padding: 10px;
+}
+
+.user-status-div {
+    display: flex;
+    justify-content: left;
+    width: 40%;
+}
+
+.user-list-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.user-list-buttons button {
+    background-color: rgb(218, 179, 108);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.user-list-buttons button a {
+    font-size: 3vh;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

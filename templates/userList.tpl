@@ -6,7 +6,33 @@
 
 
         {if !empty($users)}
-            <table class="elem-table">
+            <section class="user-list-container">
+                <h1>Lista de usuarios</h1>
+
+                <div class="user-list">
+                    <ul>
+                        {foreach from=$users item=$user}
+                            <li class="li-user">
+                                <div class="user-status-div">
+                                    <p>{$user->username}</p>
+                                    {if $user->permission == 1}
+                                        <p class="admin-indicator">Administrador</p>
+                                    {/if}
+                                </div>
+
+                                <div class="user-list-buttons">
+                                    <button><a href="admin/users/delete/{$user->id}">Eliminar</a></button>
+                                    <button><a href="admin/users/changePerms/{$user->id}">Hacer Administrador</a></button>
+                                </div>
+                            </li> 
+                        {/foreach}
+                    </ul>
+                </div>
+            </section>
+
+
+
+            <!--<table class="elem-table">
                 <thead>
                     <tr>
                         <td>Usuario</td>
@@ -24,8 +50,8 @@
                         </tr>                   
                     {/foreach}
                 </tbody>
-            </table>
-        {else}
+            </table> -->
+        {else} 
             <div class="warning-fail">
                 <h2>No hay usuarios registrados</h2>
             </div>
