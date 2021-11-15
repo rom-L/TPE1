@@ -154,11 +154,18 @@ switch ($params[0]) {
             case 'users': {
                 if (!isset($params[2])) {
                     $userController->showUserList();
+                    return;
                 }
 
-                /**
-                 * seguir
-                 */
+                switch ($params[2]) {
+                    case 'delete': {
+                        //$userController->eraseUser($params[3]);
+                    } break;
+
+                    default: {
+                        $songController->throwError();
+                    } break;
+                }
             } break;
 
             default: {
