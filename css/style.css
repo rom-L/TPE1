@@ -405,3 +405,12 @@ main.main-error {
     text-decoration: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+#username-loggedAs {
+    color: red;
+    font-weight: bold;
+}
+
+.register-login ul p {
+    margin-right: 40px;
+}
