@@ -19,6 +19,7 @@
             <div class="register-login">
                 <ul>
                     {if isset($smarty.session.USER_ID)} 
+                        <p>Logeado como: <span id="username-loggedAs">{$smarty.session.USER_NAME}</span></p>
                         <li><a href="user/logout">LOGOUT</a></li>
                     {else}
                         <li><a href="user/register">REGISTRARSE</a></li>
