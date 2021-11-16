@@ -21,8 +21,16 @@
                                 </div>
 
                                 <div class="user-list-buttons">
-                                    <button><a href="admin/users/delete/{$user->id}">Eliminar</a></button>
-                                    <button><a href="admin/users/changePerms/{$user->id}">Hacer Administrador</a></button>
+                                    {if ($smarty.session.USER_ID != $user->id)}
+                                        <button><a href="admin/users/delete/{$user->id}">Eliminar</a></button>      
+                                                                        
+                                        {if $user->permission == 0}
+                                            <button><a href="admin/users/changePerms/{$user->id}">Hacer Administrador</a></button>
+                                        {else}
+                                            <button><a href="admin/users/changePerms/{$user->id}">Remover Administrador</a></button>    
+                                        {/if}
+                                    {/if}
+
                                 </div>
                             </li> 
                         {/foreach}

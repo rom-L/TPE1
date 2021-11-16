@@ -159,8 +159,12 @@ switch ($params[0]) {
 
                 switch ($params[2]) {
                     case 'delete': {
-                        //$userController->eraseUser($params[3]);
+                        $userController->eraseUser($params[3]);
                     } break;
+
+                    case 'changePerms': {
+                        $userController->changePermission($params[3]);
+                    }
 
                     default: {
                         $songController->throwError();

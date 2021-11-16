@@ -33,7 +33,7 @@ class UserController {
             //hasheo a la contraseña (encripto)
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-            $user = $this->model->getUser($username);
+            $user = $this->model->getUserByName($username);
 
             if (empty($user)) {
                 $this->model->insertUser($username, $password);
@@ -64,7 +64,7 @@ class UserController {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $user = $this->model->getUser($username);
+            $user = $this->model->getUserByName($username);
 
 
             if ($user && password_verify($password, $user->password)) {
@@ -86,7 +86,7 @@ class UserController {
     }
 
     function loginAfterRegister($username) {
-        $user = $this->model->getUser($username);
+        $user = $this->model->getUserByName($username);
 
         if ($user) {
             session_start();
@@ -110,6 +110,41 @@ class UserController {
         $users = $this->model->getUsers();
 
         $this->view->renderUserList($users);
+    }
+
+    function eraseUser($id) {
+        $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
+
+        //si el ID no es el mismo al ID del usuario logeado, realiza la operacion
+        if ($_SESSION['USER_ID'] != $id) {
+            $this->model->deleteUser($id);
+        }
+        
+        header("Location: " . BASE_URL . "admin/users");
+
+
+    }
+
+    function changePermission($id) {
+        $this->helper->checkLoggedIn();
+        $this->helper->checkIfAdminIsLogged();
+
+        //si el ID no es el mismo al ID del usuario logeado, realiza la operacion
+        if ($_SESSION['USER_ID'] != $id) {
+
+            $user = $this->model->getUserByID($id);
+
+            if ($user->permission == 0) {
+                $this->model->makeAdmin($id);
+            }
+            else {
+                $this->model->removeAdmin($id);
+            }
+        }
+
+
+        header("Location: " . BASE_URL . "admin/users");
     }
 
     function logout() {
