@@ -346,7 +346,7 @@ main.main-error {
 }
 
 
-.user-list-container {
+.user-list-container, .comment-list-container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -360,11 +360,11 @@ main.main-error {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.user-list-container h1 {
+.user-list-container h1, .comment-list-container h1 {
     font-size: 40px;
 }
 
-.user-list {
+.user-list, .comment-list {
     margin-top: 20px;
     margin-bottom: 30px;
     background-color: wheat;
@@ -413,4 +413,158 @@ main.main-error {
 
 .register-login ul p {
     margin-right: 40px;
+}
+
+
+/*COMMENTS*/
+
+.comment-list-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 40px;
+}
+
+.comment-list-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    background-color: aliceblue;
+    border: solid;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.comment-list {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: wheat;
+    width: 95%;
+    border-radius: 5px;
+    border: solid 2px;
+}
+
+.comment-list article {
+    display: flex;
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 14%;
+    border-right: solid 2px;
+    background-color: rgb(199, 170, 117);
+    
+    
+}
+
+.user-details img {
+    margin-top: 10px;
+    width: 50%;
+    border: solid 1px;
+}
+
+.user-details p {
+    font-size: 23px;
+    width: 100%;
+    padding: 4px;
+    word-wrap: break-word;
+    margin-top: 7px;
+    font-weight: bold;
+}
+
+.comment-and-actions {
+    width: 100%;
+    font-size: 23px;
+}
+
+.comment-and-actions button {
+    background-color: rgb(218, 179, 108);
+    border-radius: 10px;
+    height: 50%;
+    padding: 1px;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(255, 14, 14);
+}
+
+.comment {
+    text-align: start;
+    width: 100%;
+    height: 80%;
+}
+
+.comment p {
+    word-wrap: break-word;
+}
+
+.actions {
+    display: flex;
+    justify-content: end;
+}
+
+.form-comments-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1px;
+    background-color: rgb(90, 153, 207);
+    border: solid;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form-comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.form-comments label {
+    margin-right: 15px;
+    text-decoration: underline;
+}
+
+.score-select-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 89%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.comment-text-container { 
+    display: flex;
+    justify-content: flex-start;
+    width: 89%;
+    
+    margin-bottom: 20px;
+}
+
+.comment-text-container textarea {
+    resize: none;
+    width: 70%;
+    height: 115px;
+    margin-right: 15px;
+    border: solid 2px;
+}
+
+.comment-text-container button {
+    background-color: rgb(218, 179, 108);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 40px;
+    height: 50%;
+    font-weight: bold;
+    font-size: 18px;
 }
