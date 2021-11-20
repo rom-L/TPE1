@@ -431,7 +431,7 @@ main.main-error {
     align-items: center;
     flex-direction: column;
     margin-top: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     background-color: aliceblue;
     border: solid;
     border-radius: 10px;
@@ -446,11 +446,14 @@ main.main-error {
     background-color: wheat;
     width: 95%;
     border-radius: 5px;
-    border: solid 2px;
+    border-left: solid;
+    border-right: solid;
+    border-top: solid;
 }
 
 .comment-list article {
     display: flex;
+    border-bottom: solid;
 }
 
 .user-details {
@@ -460,8 +463,6 @@ main.main-error {
     width: 14%;
     border-right: solid 2px;
     background-color: rgb(199, 170, 117);
-    
-    
 }
 
 .user-details img {
