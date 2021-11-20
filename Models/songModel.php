@@ -100,4 +100,46 @@ class SongModel {
 
         $query->execute([$id]);
     }
+
+
+    /**
+     * COMMENTS
+    */
+
+    
+    function getAllComments() {
+        $query = $this->db->prepare('SELECT * FROM comment');
+
+        $query->execute();
+
+
+        $elements = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
+    function getCommentByID($id) {
+        $query = $this->db->prepare('SELECT * FROM comment WHERE id = ?');
+
+        $query->execute([$id]);
+
+
+        $elements = $query->fetch(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
+    function deleteComment($id) {
+        $query = $this->db->prepare('DELETE FROM comment WHERE id = ?');
+
+        $query->execute([$id]);
+    }
+
+    function postComment($song, $user, $commentText, $score) {
+        $query = $this->db->prepare('INSERT INTO comment (id, id_song_fk, id_user_fk, comment, score) VALUES (NULL, ?, ?, ?, ?)');
+
+        $query->execute([$song, $user, $commentText, $score]);
+
+        return $this->db->lastInsertId();
+    }
 }
