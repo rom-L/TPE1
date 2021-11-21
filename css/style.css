@@ -462,13 +462,17 @@ main.main-error {
     flex-direction: column;
     width: 14%;
     border-right: solid 2px;
-    background-color: rgb(199, 170, 117);
+    background-color: rgb(90, 153, 207);
 }
 
-.user-details img {
+.user-details .user-pfp {
     margin-top: 10px;
     width: 50%;
     border: solid 1px;
+}
+
+.user-details .user-score-img {
+    width: 100%;
 }
 
 .user-details p {
