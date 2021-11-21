@@ -33,30 +33,8 @@
             <div class="comment-list-container">
                 <h1>Comentarios</h1>
 
-                <div class="comment-list">
-                    <!--HUECO CSR-->
-                    <article>
-                        <div class="user-details">
-                            <img src="img/user-pfp.png" alt="foto de usuario">
-                            <p>username</p>
-                        </div>
-
-                        <div class="comment-and-actions">
-                            <div class="comment">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ut exercitationem aliquid unde rerum architecto, dignissimos dolores qui, explicabo eius sed, totam doloribus? Ipsa nihil soluta assumenda expedita magni dignissimos.</p>
-                            </div>
-
-                            {if isset($smarty.session.USER_ID) && ($smarty.session.USER_PERMISSION == 1)}
-                                <div class="actions">
-                                    <button>Eliminar</button>
-                                </div>
-                    
-                            {/if}
-
-                        </div>
-                    </article>
-                    
-                </div>
+                {include file="templates/vue/commentListVue.tpl"}
+                
 
             </div>
 
