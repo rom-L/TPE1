@@ -106,9 +106,11 @@ class SongModel {
      * COMMENTS
     */
 
-    
+                                                        
+
     function getAllComments() {
-        $query = $this->db->prepare('SELECT * FROM comment');
+        //$query = $this->db->prepare('SELECT a.id, b.song_name, c.username, a.comment, a.score FROM comment a INNER JOIN song b ON a.id_song_fk = b.id INNER JOIN user c ON a.id_user_fk = c.id');
+        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id');
 
         $query->execute();
 
@@ -118,8 +120,19 @@ class SongModel {
         return $elements;
     }
 
+    function getAllCommentsBySongID($id) {
+        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE comment.id_song_fk = ?');
+
+        $query->execute([$id]);
+
+        
+        $elements = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
     function getCommentByID($id) {
-        $query = $this->db->prepare('SELECT * FROM comment WHERE id = ?');
+        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE comment.id = ?');
 
         $query->execute([$id]);
 
