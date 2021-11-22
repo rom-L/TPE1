@@ -451,6 +451,20 @@ main.main-error {
     border-top: solid;
 }
 
+.no-comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: wheat;
+    height: 100px;
+    width: 95%;
+    border-radius: 5px;
+    border: solid;
+    
+}
+
 .comment-list article {
     display: flex;
     border-bottom: solid;
