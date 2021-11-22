@@ -102,57 +102,14 @@ class SongModel {
     }
 
 
-    /**
-     * COMMENTS
-    */
+    function getAllComments($id) {
+        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE id_song_fk = ?');
 
-                                                        
-
-    function getAllComments() {
-        //$query = $this->db->prepare('SELECT a.id, b.song_name, c.username, a.comment, a.score FROM comment a INNER JOIN song b ON a.id_song_fk = b.id INNER JOIN user c ON a.id_user_fk = c.id');
-        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id');
-
-        $query->execute();
+        $query->execute([$id]);
 
 
         $elements = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $elements;
-    }
-
-    function getAllCommentsBySongID($id) {
-        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE comment.id_song_fk = ?');
-
-        $query->execute([$id]);
-
-        
-        $elements = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $elements;
-    }
-
-    function getCommentByID($id) {
-        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE comment.id = ?');
-
-        $query->execute([$id]);
-
-
-        $elements = $query->fetch(PDO::FETCH_OBJ);
-
-        return $elements;
-    }
-
-    function deleteComment($id) {
-        $query = $this->db->prepare('DELETE FROM comment WHERE id = ?');
-
-        $query->execute([$id]);
-    }
-
-    function postComment($song, $user, $commentText, $score) {
-        $query = $this->db->prepare('INSERT INTO comment (id, id_song_fk, id_user_fk, comment, score) VALUES (NULL, ?, ?, ?, ?)');
-
-        $query->execute([$song, $user, $commentText, $score]);
-
-        return $this->db->lastInsertId();
     }
 }

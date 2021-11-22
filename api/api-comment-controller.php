@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Models/songModel.php';
+require_once 'Models/commentModel.php';
 require_once 'api/api-view.php';
 require_once 'Helpers/userHelper.php';
 
@@ -10,21 +10,23 @@ class ApiCommentController {
 
 
     public function __construct() {
-        $this->model = new SongModel();
+        $this->model = new CommentModel();
         $this->view = new ApiView();
     }
     
 
     function getAll($params = null) {
-        $comments = $this->model->getAllComments();
+        $id = $params[':ID'];
+        $comments = $this->model->getAllComments($id);
         
-        if (!empty($comments)) {
+        if ($comments) {
             $this->view->response($comments, 200);
         }
         else {
-            $this->view->response('There are no comments', 200);
+            $this->view->response("No comments found for song with ID = $id", 200);
         }
     }
+
 
     function getOne($params = null) {
         $id = $params[':ID'];
@@ -59,23 +61,23 @@ class ApiCommentController {
      */
     function getBody() {
         //se usa para obtener los datos ingresados
-        $data = file_get_contents('php://input');
+        $data = file_get_contents("php://input");
 
         //devuelve objeto 
         return json_decode($data);
     }
 
-    function post($params = null) {
+    function insert($params = null) {
         // devuelve objeto enviado por POST
         $data = $this->getBody();
 
-        $song = $data->song;
-        $user = $data->user;
-        $commentText = $data->comment;
+        $song = $data->id_song_fk;
+        $user = $data->id_user_fk;
+        $comment = $data->commentText;
         $score = $data->score;
 
         //inserta comentario y obtiene la id del ultimo objeto insertado
-        $id = $this->model->postComment($song, $user, $commentText, $score);
+        $id = $this->model->postComment($song, $user, $comment, $score);
 
         //busca ultimo comentario insertado para comprobar si existe o no
         $comment = $this->model->getCommentByID($id);

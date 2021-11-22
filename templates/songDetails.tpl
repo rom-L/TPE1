@@ -18,7 +18,7 @@
             <tbody>
                 {foreach from=$songs item=$song}
                     <tr>
-                        <td>{$song->song_name}</td>
+                        <td id="song-data-id" data-id="{$song->id}">{$song->song_name}</td>
                         <td>{$song->album_name}</td>
                         <td>{$song->song_length}</td>
                         <td>{$song->song_release_date}</td>
@@ -32,16 +32,24 @@
         
             <div class="comment-list-container">
                 <h1>Comentarios</h1>
-
+                
                 {include file="templates/vue/commentListVue.tpl"}
+                
+                <!--
+                <div class="no-comments">
+                    <div class="warning-fail">
+                        <h2>No hay comentarios</h2>
+                    </div>    
+                </div>
+                -->
                 
 
             </div>
 
 
             {if isset($smarty.session.USER_ID)}
-                <div class="form-comments-container">
-                    <form class="form-comments">
+                <div id="user-data-id" data-id="{$smarty.session.USER_ID}" class="form-comments-container">
+                    <form id="form" class="form-comments">
                         <div class="score-select-container">
                             <label>Puntaje: </label>
                             <select name="score">
@@ -56,7 +64,7 @@
                         <div class="comment-text-container">
                             <label>Comentario: </label>
                             <textarea name="comment-text" cols="30" rows="10"></textarea>
-                            <button type="submit">Comentar</button>
+                            <button id="comment-button" type="submit">Comentar</button>
                         </div>
                     </form>
                 

@@ -16,15 +16,17 @@
                 <div class="comment">
                     <p>{{comment.comment}}</p>
                 </div>
+{/literal}
 
-                <!--{if isset($smarty.session.USER_ID) && ($smarty.session.USER_PERMISSION == 1)}
+                {if isset($smarty.session.USER_ID) && ($smarty.session.USER_PERMISSION == 1)}
                     <div class="actions">
-                        <button>Eliminar</button>
+                        {literal}
+                            <button id="delete-comment-button" :data-id="comment.id">Eliminar</button>
+                        {/literal}
                     </div>
 
-                {/if} -->
+                {/if} 
 
             </div>
         </article>
     </div>
-{/literal}
