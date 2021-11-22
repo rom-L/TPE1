@@ -21,7 +21,7 @@
                 {if isset($smarty.session.USER_ID) && ($smarty.session.USER_PERMISSION == 1)}
                     <div class="actions">
                         {literal}
-                            <button id="delete-comment-button" :data-id="comment.id">Eliminar</button>
+                            <button v-on:click="deleteComment" id="delete-comment-button" :data-id="comment.id">Eliminar</button>
                         {/literal}
                     </div>
 
