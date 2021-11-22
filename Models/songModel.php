@@ -101,15 +101,4 @@ class SongModel {
         $query->execute([$id]);
     }
 
-
-    function getAllComments($id) {
-        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE id_song_fk = ?');
-
-        $query->execute([$id]);
-
-
-        $elements = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $elements;
-    }
 }
