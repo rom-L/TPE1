@@ -44,9 +44,10 @@ class SongView {
         $this->smarty->display('templates/songListPublic.tpl');
     }
 
-    function renderSongDetails($songs, $elems) {
+    function renderSongDetails($songs, $elems, $bandsAvailable) {
         $this->smarty->assign('songs', $songs);
         $this->smarty->assign('elems', $elems);
+        $this->smarty->assign('bandsAvailable', $bandsAvailable);
 
         $this->smarty->display('templates/songDetails.tpl');
     }

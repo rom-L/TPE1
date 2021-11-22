@@ -71,7 +71,9 @@ class SongController {
         $songs = $this->model->getSongDetails($id);
         $elems = $this->model->getAllElements();
 
-        $this->view->renderSongDetails($songs, $elems);
+        $bandsAvailable = $this->fixRepeatedBands($elems);
+
+        $this->view->renderSongDetails($songs, $elems, $bandsAvailable);
     }
 
     function showAdminSongList() {
