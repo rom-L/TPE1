@@ -34,16 +34,7 @@
                 <h1>Comentarios</h1>
                 
                 {include file="templates/vue/commentListVue.tpl"}
-                
-                <!--
-                <div class="no-comments">
-                    <div class="warning-fail">
-                        <h2>No hay comentarios</h2>
-                    </div>    
-                </div>
-                -->
-                
-
+            
             </div>
 
 

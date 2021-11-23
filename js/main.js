@@ -12,6 +12,7 @@ let app = new Vue({
     data: {
         //defino arreglo para almacenar objetos
         commentStorage: [],
+        arrayBoolean: true,
     },
     methods: {
         deleteComment: async function (e) {
@@ -40,9 +41,18 @@ async function getComments() {
 
         let comments = await response.json();
 
-        //almaceno comentarios en variable en VUE
-        app.commentStorage = comments;
+        //compruebo si comments es un array
+        let arrayBoolean = checkIfIsArray(comments);
+        
+        if (arrayBoolean) {
+            //almaceno comentarios en variable en VUE
+            app.commentStorage = comments;
+        }
+        else {
+            app.arrayBoolean = false;
+        }
         console.log(app.commentStorage);
+        console.log(app.arrayBoolean);
     }
     catch (error) {
         console.log(error);
@@ -87,6 +97,9 @@ async function postComment(comment) {
         if (response.ok) {
             let comment = await response.json();
             app.commentStorage.push(comment);
+            //cambia arrayBoolean a true para que entre en la funcion getComments() y vea que es true asi pueda actualizar la lista de comments
+            app.arrayBoolean = true;
+            getComments();
             alert('El comentario fue enviado');
         }
         else {
@@ -108,15 +121,17 @@ async function deleteComment(e) {
         });
 
         if (response.ok) {
-            //recorre arreglo para borrar el objeto con la id del comentario y asi poder mantener la pagina actualizada
+            /* //recorre arreglo para borrar el objeto con la id del comentario y asi poder mantener la pagina actualizada
             for (let i = 0; i < app.commentStorage.length; i++) {
                 if (app.commentStorage[i].id == id) {
                     //en la posicion (i) del arreglo se borra (1) elemento
                     app.commentStorage.splice(i, 1);
                 }
-            }
+            } */
 
             alert('Eliminado con exito');
+            //llama para actualizar
+            getComments();
         }
         else {
             alert('No se pudo eliminar');
@@ -137,6 +152,11 @@ function getUserID() {
     let userID = document.querySelector('#user-data-id').getAttribute('data-id');
 
     return userID;
+}
+
+function checkIfIsArray(array) {
+    let arrayBoolean = Array.isArray(array);
+    return arrayBoolean;
 }
 
 
