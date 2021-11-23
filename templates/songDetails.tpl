@@ -49,7 +49,9 @@
 
             {if isset($smarty.session.USER_ID)}
                 <div id="user-data-id" data-id="{$smarty.session.USER_ID}" class="form-comments-container">
-                    <form id="form" class="form-comments">
+                {literal}
+                    <form v-on:submit="addComment" id="form-comment-insert" class="form-comments">
+                {/literal}
                         <div class="score-select-container">
                             <label>Puntaje: </label>
                             <select name="score">

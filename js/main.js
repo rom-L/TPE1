@@ -4,12 +4,9 @@
 const API_URL = 'api/comments/';
 
 
-let form = document.querySelector('#form');
-form.addEventListener('submit', addComment);
 
 
-
-//uso VUE
+//uso VUE para los comentarios
 let app = new Vue({
     el: '#app',
     data: {
@@ -21,6 +18,16 @@ let app = new Vue({
             deleteComment(e);
         }
     },
+});
+
+//uso VUE para el form de insertar comments
+let formApp = new Vue({
+    el: '#form-comment-insert',
+    methods: {
+        addComment: async function (e) {
+            addComment(e);
+        }
+    }
 });
 
 
@@ -44,7 +51,7 @@ async function getComments() {
 
 async function addComment(e) {
     e.preventDefault();
-
+    let form = document.querySelector('#form-comment-insert');
     let formData = new FormData(form);
 
     let song = getSongID();
