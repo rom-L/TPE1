@@ -55,7 +55,7 @@ class SongController {
         $bandsAvailable = $this->fixRepeatedBands($elems);
 
         //muestro con la funcion de la vista
-        $this->view->renderElements($songs, $elems, $bandsAvailable, $pages);
+        $this->view->renderElements($songs, $elems, $bandsAvailable, $pages, $currentPage);
     }
 
     function showSongListByBand() {

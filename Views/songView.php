@@ -15,7 +15,7 @@ class SongView {
         $this->smarty->display('templates/error.tpl');
     }
 
-    function renderElements($songs, $elems, $bandsAvailable, $pages = null) {
+    function renderElements($songs, $elems, $bandsAvailable, $pages = null, $currentPage = null) {
         //asigno variable songs a archivo smarty
         $this->smarty->assign('songs', $songs);
 
@@ -25,6 +25,7 @@ class SongView {
         $this->smarty->assign('elems', $elems);
 
         $this->smarty->assign('pages', $pages);
+        $this->smarty->assign('currentPage', $currentPage);
 
         //muestra lista de canciones
         $this->smarty->display('templates/allElementsList.tpl');

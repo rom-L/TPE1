@@ -41,7 +41,11 @@
         <div class="page-list-container">
             {if $pages}
                 {for $page=1 to $pages}
-                    <a class="page-list-anchors" href="listar/all?page={$page}">{$page}</a>
+                    {if $currentPage == $page}
+                        <a id="anchor-page-highlight" class="page-list-anchors" href="listar/all?page={$page}">{$page}</a> 
+                    {else}
+                        <a class="page-list-anchors" href="listar/all?page={$page}">{$page}</a> 
+                    {/if}
                 {/for}
             {/if}
         </div>

@@ -599,3 +599,7 @@ main.main-error {
     font-size: 35px;
     margin: 5px;
 }
+
+#anchor-page-highlight {
+    color: red;
+}
