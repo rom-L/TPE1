@@ -11,6 +11,8 @@
                     <tr>
                         <td>Canción</td>
                         <td>Álbum</td>
+                        <td>Duración</td>
+                        <td>Fecha de lanzamiento</td>
                     </tr>
                 </thead>
 
@@ -19,6 +21,8 @@
                         <tr>
                             <td><a href="showDetails/{$song->id}">{$song->song_name}</a></td>
                             <td>{$song->album_name}</td>
+                            <td>{$song->song_length}</td>
+                            <td>{$song->song_release_date}</td>
                         </tr>                   
                     {/foreach}
                 </tbody>
