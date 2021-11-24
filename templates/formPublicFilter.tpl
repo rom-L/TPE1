@@ -26,9 +26,21 @@
 
             <button type="submit">Buscar</button>
         </form>
-    
 
+        <form action="listar/filter/advanced" method="POST">
+            <div class="filter-container">
+                <input type="text" name="song-filter-value" placeholder="Canción">
+                <input type="text" name="album-filter-value" placeholder="Álbum">
+                <input type="text" name="band-filter-value" placeholder="Banda">
+                <input type="text" name="debut-filter-value" placeholder="Debut de banda">
+                <input type="text" name="released-filter-value" placeholder="Álbumes lanzados">
+            </div>
+
+            <button type="submit">Buscar</button>
+        </form>
+    
     </div>
+
 </div>
 
     

@@ -49,7 +49,7 @@ switch ($params[0]) {
                     } break;
 
                     case 'advanced': {
-                        //$songController->showElemsAdvancedFilter();
+                        $songController->showElemsAdvancedFilter();
                     } break;
 
                     default: {

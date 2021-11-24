@@ -76,9 +76,20 @@ class SongModel {
     }
 
     function getElemsBasicFilter($value) {
-        $query = $this->db->prepare('SELECT a.id, a.song_name, a.album_name, a.song_length, a.song_release_date, b.band_name, b.debut, b.band_members, b.albums_released FROM song a INNER JOIN band b ON a.id_band_fk = b.id WHERE a.song_name LIKE ? || a.album_name LIKE ? || a.song_length LIKE ? || a.song_release_date LIKE ? || b.band_name LIKE ? || b.debut LIKE ? || b.band_members LIKE ? || b.albums_released LIKE ?');
+        $query = $this->db->prepare('SELECT a.id, a.song_name, a.album_name, b.band_name, b.debut, b.band_members, b.albums_released FROM song a INNER JOIN band b ON a.id_band_fk = b.id WHERE a.song_name LIKE ? || a.album_name LIKE ? || b.band_name LIKE ? || b.debut LIKE ? || b.band_members LIKE ? || b.albums_released LIKE ?');
 
-        $query->execute([$value, $value, $value, $value, $value, $value, $value, $value]);
+        $query->execute([$value, $value, $value, $value, $value, $value]);
+
+
+        $elements = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
+    function getElemsAdvancedFilter($song, $album, $band, $debut, $albumsReleased) {
+        $query = $this->db->prepare('SELECT a.id, a.song_name, a.album_name, b.band_name, b.debut, b.band_members, b.albums_released FROM song a INNER JOIN band b ON a.id_band_fk = b.id WHERE a.song_name LIKE ? && a.album_name LIKE ? && b.band_name LIKE ? && b.debut LIKE ? && b.albums_released LIKE ?');
+
+        $query->execute([$song, $album, $band, $debut, $albumsReleased]);
 
 
         $elements = $query->fetchAll(PDO::FETCH_OBJ);

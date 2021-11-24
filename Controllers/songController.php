@@ -77,6 +77,30 @@ class SongController {
         $elems = $this->model->getAllElements();
 
         $bandsAvailable = $this->fixRepeatedBands($elems);
+
+
+        $this->view->renderElemsWithFilter($songs, $elems, $bandsAvailable);
+    }
+
+    function showElemsAdvancedFilter() {
+        $song = $_POST['song-filter-value'];
+        $album = $_POST['album-filter-value'];
+        $band = $_POST['band-filter-value'];
+        $debut = $_POST['debut-filter-value'];
+        $albumsReleased = $_POST['released-filter-value'];
+
+    
+        if (empty($song) || empty($album) || empty($band) || empty($debut) || empty($albumsReleased)) {
+            $this->throwError();
+            return;
+        }
+        
+        
+        $songs = $this->model->getElemsAdvancedFilter($song, $album, $band, $debut, $albumsReleased);
+
+        $elems = $this->model->getAllElements();
+
+        $bandsAvailable = $this->fixRepeatedBands($elems);
         
 
         $this->view->renderElemsWithFilter($songs, $elems, $bandsAvailable);
