@@ -209,6 +209,8 @@ main.main-error {
 
 .elem-table {
     margin-top: 20px;
+    width: 90%;
+    height: 250px;
     border-collapse: collapse;
     margin-bottom: 100px;
 }
@@ -584,4 +586,16 @@ main.main-error {
     height: 50%;
     font-weight: bold;
     font-size: 18px;
+}
+
+.page-list-container {
+    background-color: wheat;
+    border-radius: 5px;
+    border: solid brown;
+    margin-bottom: 55px;
+}
+
+.page-list-anchors {
+    font-size: 35px;
+    margin: 5px;
 }

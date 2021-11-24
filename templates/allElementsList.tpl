@@ -37,6 +37,15 @@
             </div>
         {/if}
 
+
+        <div class="page-list-container">
+            {if $pages}
+                {for $page=1 to $pages}
+                    <a class="page-list-anchors" href="listar/all?page={$page}">{$page}</a>
+                {/for}
+            {/if}
+        </div>
+
     </main>
 
 {include file="templates/footer.tpl"}

@@ -1,7 +1,7 @@
 <div class="div-form">
     <form class="form-public" action="listar/songsByBand" method="GET">
         <div class="buttons-form-public">
-            <button type="button"><a href="listar/all">Ver todos</a></button>
+            <button type="button"><a href="listar/all?page=1">Ver todos</a></button>
             <button type="button"><a href="listar/songs">Ver canciones</a></button>
             <button type="button"><a href="listar/bands">Ver categorías</a></button>
         </div>

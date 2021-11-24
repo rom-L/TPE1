@@ -54,6 +54,27 @@ class SongModel {
         return $elements;
     }
 
+    function countSongs() {
+        $query = $this->db->prepare('SELECT COUNT(*) AS totalSongs FROM song');
+
+        $query->execute();
+
+        $elements = $query->fetch(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
+    function getElementsPerPage($startingNumber, $limit) {
+        $query = $this->db->prepare('SELECT a.id, a.song_name, a.album_name, a.song_length, a.song_release_date, b.band_name, b.debut, b.band_members, b.albums_released FROM song a INNER JOIN band b ON a.id_band_fk = b.id LIMIT ' . $startingNumber . ', ' . $limit);
+
+        $query->execute();
+
+
+        $elements = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
     function getSongDetails($id) {
         $query = $this->db->prepare('SELECT * FROM song WHERE id = ?');
 

@@ -22,8 +22,32 @@ class SongController {
     }
 
     function showAllElems() {
-        //obtengo el arreglo desde el modelo con la funcion
-        $songs = $this->model->getAllElements();
+        //defino cuantos resultados quiero por cada pagina
+        $limit = 7;
+
+        //cuento la cantidad de canciones cargadas en la DB
+        $countSongs = $this->model->countSongs();
+        $totalSongs = $countSongs->totalSongs;
+
+        //calculo total de paginas
+        $pages = ceil($totalSongs / $limit);
+
+        //pregunto si esta definido page o no para paginars
+        if (!isset($_GET['page']) || ($_GET['page'] < 1)) {
+            $currentPage = 1;
+        }
+        else {
+            $currentPage = $_GET['page'];
+        }
+
+        //hace una operacion para obtener valor para el LIMIT del model
+        $startingNumber = (($currentPage - 1) * $limit);
+
+
+
+
+        //obtengo los elementos con limite por pagina
+        $songs = $this->model->getElementsPerPage($startingNumber, $limit);
 
         //obtengo todos los elementos para poder mantener al select actualizado 
         $elems = $this->model->getAllElements();
@@ -31,7 +55,7 @@ class SongController {
         $bandsAvailable = $this->fixRepeatedBands($elems);
 
         //muestro con la funcion de la vista
-        $this->view->renderElements($songs, $elems, $bandsAvailable);
+        $this->view->renderElements($songs, $elems, $bandsAvailable, $pages);
     }
 
     function showSongListByBand() {
