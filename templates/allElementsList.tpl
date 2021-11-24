@@ -3,7 +3,7 @@
 
     <main class="main-list">
 
-        {include file="templates/formPublic.tpl"}
+        {include file="templates/formPublicFilter.tpl"}
 
         {if !empty($songs)}
             <table class="elem-table">

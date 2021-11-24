@@ -22,6 +22,10 @@ class SongController {
     }
 
     function showAllElems() {
+        /**
+         * PAGINACION
+         */
+
         //defino cuantos resultados quiero por cada pagina
         $limit = 7;
 
@@ -43,6 +47,7 @@ class SongController {
         //hace una operacion para obtener valor para el LIMIT del model
         $startingNumber = (($currentPage - 1) * $limit);
 
+        //----------------------------------
 
 
 
@@ -56,6 +61,25 @@ class SongController {
 
         //muestro con la funcion de la vista
         $this->view->renderElements($songs, $elems, $bandsAvailable, $pages, $currentPage);
+    }
+
+    function showElemsBasicFilter() {
+        $value = $_POST['basic-filter-value'];
+    
+        if (empty($value)) {
+            $this->throwError();
+            return;
+        }
+        
+        
+        $songs = $this->model->getElemsBasicFilter($value);
+
+        $elems = $this->model->getAllElements();
+
+        $bandsAvailable = $this->fixRepeatedBands($elems);
+        
+
+        $this->view->renderElemsWithFilter($songs, $elems, $bandsAvailable);
     }
 
     function showSongListByBand() {

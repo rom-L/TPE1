@@ -31,6 +31,15 @@ class SongView {
         $this->smarty->display('templates/allElementsList.tpl');
     }
 
+    function renderElemsWithFilter($songs, $elems, $bandsAvailable) {
+        $this->smarty->assign('songs', $songs);
+        $this->smarty->assign('bandsAvailable', $bandsAvailable);
+        $this->smarty->assign('elems', $elems);
+        $this->smarty->assign('pages', $pages = false);
+
+        $this->smarty->display('templates/allElementsList.tpl');
+    }
+
     function renderBandList($bands, $elems, $bandsAvailable) {
         $this->smarty->assign('bands', $bands);
         $this->smarty->assign('elems', $elems);

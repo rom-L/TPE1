@@ -37,6 +37,27 @@ switch ($params[0]) {
                 $songController->showAllElems();
             } break;
 
+            case 'filter': {
+                if (!isset($params[2])) {
+                    $songController->throwError();
+                    return;
+                }
+
+                switch ($params[2]) {
+                    case 'basic': {
+                        $songController->showElemsBasicFilter();
+                    } break;
+
+                    case 'advanced': {
+                        //$songController->showElemsAdvancedFilter();
+                    } break;
+
+                    default: {
+                        $songController->throwError();
+                    } break;
+                }
+            } break;
+
             case 'bands': {
                 $songController->showBandList();
             } break;
