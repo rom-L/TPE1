@@ -11,7 +11,7 @@ $router = new Router();
 
 //tabla de ruteo
 $router->addRoute('comments/songs/:ID', 'GET', 'ApiCommentController', 'getAll');
-$router->addRoute('comments/:ID', 'GET', 'ApiCommentController', 'getOne');
+$router->addRoute('comments/songs/:ID/order', 'GET', 'ApiCommentController', 'order');
 $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
 $router->addRoute('comments', 'POST', 'ApiCommentController', 'insert');
 

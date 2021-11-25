@@ -20,6 +20,17 @@ class CommentModel {
         return $elements;
     }
 
+    function orderComments($id, $order) {
+        $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE id_song_fk = ? ORDER BY 5 ' . $order);
+
+        $query->execute([$id]);
+
+
+        $elements = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $elements;
+    }
+
     function getCommentByID($id) {
         $query = $this->db->prepare('SELECT a.id, a.id_song_fk, b.username, a.comment, a.score FROM comment a INNER JOIN user b ON a.id_user_fk = b.id WHERE a.id = ?');
 

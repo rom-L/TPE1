@@ -28,17 +28,20 @@ class ApiCommentController {
     }
 
 
-    function getOne($params = null) {
+    function order($params = null) {
         $id = $params[':ID'];
+        $order = $_GET['order'];
 
-        $comment = $this->model->getCommentByID($id);
+        $orderComments = $this->model->orderComments($id, $order);
 
-        if ($comment) {
-            $this->view->response($comment, 200);
+        if (!empty($orderComments)) {
+            $this->view->response($orderComments, 200);
         }
         else {
-            $this->view->response("Comment = $id not found", 404);
+            $this->view->response("Couldn't order the comments", 404);
         }
+
+        
     }
 
     function delete($params = null) {

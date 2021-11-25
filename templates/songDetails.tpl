@@ -32,6 +32,29 @@
         
             <div class="comment-list-container">
                 <h1>Comentarios</h1>
+
+                <form class="form-order-comments" action="api/comments/songs/18/order" method="GET">
+
+                    <div class="select-asc-desc">
+                        <label>Ordenamiento: </label>
+                        <select id="select-order" name="order">
+                            <option value="ASC">Ascendente</option>
+                            <option value="DESC">Descendente</option>
+                        </select>
+                    </div>
+
+                    <button id="button-order-comments" type="submit">Ordenar</button>
+                </form>
+                    <!--<div class="select-order-container">
+                        <label>Ordenar por puntaje: </label>
+                        <select id="select-score-order" name="score-order">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>-->
                 
                 {include file="templates/vue/commentListVue.tpl"}
             

@@ -4,6 +4,12 @@
 const API_URL = 'api/comments/';
 
 
+let orderButton = document.querySelector('#button-order-comments');
+orderButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    orderComments();
+});
+
 
 
 //uso VUE para los comentarios
@@ -43,7 +49,7 @@ async function getComments() {
 
         //compruebo si comments es un array
         let arrayBoolean = checkIfIsArray(comments);
-        
+
         if (arrayBoolean) {
             //almaceno comentarios en variable en VUE
             app.commentStorage = comments;
@@ -53,6 +59,35 @@ async function getComments() {
         }
         console.log(app.commentStorage);
         console.log(app.arrayBoolean);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+async function orderComments() {
+    let order = document.querySelector('#select-order').value;
+
+    try {  
+        let response = await fetch(API_URL + 'songs/' + getSongID() + '/order?score-order=5&order=' + order);
+        if (response.ok) {
+            let comments = await response.json();
+
+            //compruebo si comments es un array
+            let arrayBoolean = checkIfIsArray(comments);
+
+            if (arrayBoolean) {
+                //almaceno comentarios en variable en VUE
+                app.commentStorage = comments;
+                console.log(score, order);
+            }
+            else {
+                app.arrayBoolean = false;
+            }
+        }
+        else {
+            alert('No se pudo ordenar');
+        }
     }
     catch (error) {
         console.log(error);
@@ -137,7 +172,7 @@ async function deleteComment(e) {
             alert('No se pudo eliminar');
         }
     }
-    catch(error) {
+    catch (error) {
         console.log(error);
     }
 }
