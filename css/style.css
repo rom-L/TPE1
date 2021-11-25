@@ -635,14 +635,17 @@ main.main-error {
     color: red;
 }
 
-.form-order-comments {
+.comment-forms {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.form-order-comments, .form-filter-comments {
     margin-top: 10px;
 }
 
-.form-order-comments button {
+.form-order-comments button, .form-filter-comments button {
     margin-top: 10px;
     background-color: rgb(218, 179, 108);
     border-radius: 10px;
@@ -652,7 +655,7 @@ main.main-error {
     color: rgb(48, 16, 16);
 }
 
-.form-order-comments label{
+.form-order-comments label, .form-filter-comments label{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
 }

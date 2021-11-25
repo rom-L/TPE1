@@ -40,8 +40,20 @@ class ApiCommentController {
         else {
             $this->view->response("Couldn't order the comments", 404);
         }
+    }
 
-        
+    function filter($params = null) {
+        $id = $params[':ID'];
+        $score = $_GET['score-filter'];
+
+        $filteredComments = $this->model->filterComments($id, $score);
+
+        if (!empty($filteredComments)) {
+            $this->view->response($filteredComments, 200);
+        }
+        else {
+            $this->view->response("Couldn't filter comments", 404);
+        }
     }
 
     function delete($params = null) {

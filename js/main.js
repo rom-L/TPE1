@@ -10,7 +10,17 @@ orderButton.addEventListener("click", function (e) {
     orderComments();
 });
 
+let restoreButton = document.querySelector('#button-restore-comments');
+restoreButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    getComments();
+});
 
+let filterButton = document.querySelector('#button-filter-comments');
+filterButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    filterComments();
+});
 
 //uso VUE para los comentarios
 let app = new Vue({
@@ -87,6 +97,34 @@ async function orderComments() {
         }
         else {
             alert('No se pudo ordenar');
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+async function filterComments() {
+    let score = document.querySelector('#select-score-filter').value;
+
+    try {
+        let response = await fetch(API_URL + 'songs/' + getSongID() + '/filter?score-filter=' + score);
+        if (response.ok) {
+            let comments = await response.json();
+
+            //compruebo si comments es un array
+            let arrayBoolean = checkIfIsArray(comments);
+
+            if (arrayBoolean) {
+                //almaceno comentarios en variable en VUE
+                app.commentStorage = comments;
+            }
+            else {
+                app.arrayBoolean = false;
+            }
+        }
+        else {
+            alert('No hay comentarios disponibles con este puntaje');
         }
     }
     catch (error) {
