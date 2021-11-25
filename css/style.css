@@ -258,7 +258,7 @@ main.main-error {
     text-align: center;
     background-color: wheat;
     font-size: 20px;
-    background-image: url('../img/cork-board.png');
+    background-color: #c8a07e;
 }
 
 .elem-table table, tr, td {
