@@ -148,7 +148,7 @@ main.main-error {
     align-items: center;
     margin: 20px;
     border-radius: 10px;
-    background-image: url('../img/dark-grey-terrazzo.png');
+    background-image: url('../img/papyrus-dark.png');
     border: solid rgb(150, 58, 58);
     width: 80%;
 }
@@ -157,7 +157,7 @@ main.main-error {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
 }
 
 .buttons-form-public {
@@ -195,7 +195,7 @@ main.main-error {
 }
 
 .search-band button {
-    width: 7%;
+    width: 10%;
     margin-left: 25px;
     background-color: wheat;
     border-radius: 10px;
@@ -205,6 +205,37 @@ main.main-error {
 
 .search-band select {
     font-size: 2vh;
+}
+
+.filters {
+    margin: 20px;
+    width: 50%;
+}
+
+.filters input {
+    font-size: 2.2vh;
+}
+
+.filters button {
+    width: 10vh;
+    margin-top: 10px;
+    margin-left: 25px;
+    background-color: wheat;
+    border-radius: 10px;
+    font-size: 2.5vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.filters label {
+    color: rgb(150, 119, 63);
+    font-size: 2.4vh;
+    margin-right: 10px;
+    text-decoration: underline;
+    font-family: 'Krona One', sans-serif;
+}
+
+.basic-filter {
+    margin-bottom: 30px;
 }
 
 .elem-table {

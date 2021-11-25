@@ -19,7 +19,9 @@
     </form>
 
     <div class="filters">
-        <form action="listar/filter/basic" method="POST">
+        <form class="basic-filter" action="listar/filter/basic" method="POST">
+            <label>Filtro Básico</label>
+
             <div class="filter-container">
                 <input type="text" name="basic-filter-value" placeholder="Buscar en todos">
             </div>
@@ -27,7 +29,9 @@
             <button type="submit">Buscar</button>
         </form>
 
-        <form action="listar/filter/advanced" method="POST">
+        <form class="advanced-filter" action="listar/filter/advanced" method="POST">
+            <label>Filtros Avanzados:</label>
+
             <div class="filter-container">
                 <input type="text" name="song-filter-value" placeholder="Canción">
                 <input type="text" name="album-filter-value" placeholder="Álbum">
